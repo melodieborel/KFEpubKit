@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 //
 
-#import <GHUnitOSX/GHTestCase.h>
+#import <GHUnit/GHTestCase.h>
 #import "KFEpubParser.h"
 
 @interface KFEpubParserTest : GHTestCase

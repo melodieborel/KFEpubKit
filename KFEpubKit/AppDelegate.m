@@ -122,7 +122,11 @@
 
 - (void)testEpubsInMainBundleResources
 {
-    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"tolstoy-war-and-peace" withExtension:@"epub"];
+    //NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"tolstoy-war-and-peace" withExtension:@"epub"];
+    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"AGameOfThrones" withExtension:@"epub"];
+    //NSURL *epubURL = [[NSURL alloc] initFileURLWithPath:@"file:///Users/MB/Desktop/GoT⁩/A Game Of Thrones - George RR Martin.epub"];
+
+
     
     [self.libraryURL startAccessingSecurityScopedResource];
     self.epubController = [[KFEpubController alloc] initWithEpubURL:epubURL andDestinationFolder:self.libraryURL];

@@ -31,7 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"tolstoy-war-and-peace" withExtension:@"epub"];
+	//NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"tolstoy-war-and-peace" withExtension:@"epub"];
+    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"AGameOfThrones" withExtension:@"epub"];
+    //NSURL *epubURL = [[NSURL alloc] initFileURLWithPath:@"file:///Users/MB/Desktop/GoT⁩/A Game Of Thrones - George RR Martin.epub"];
     
     NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     

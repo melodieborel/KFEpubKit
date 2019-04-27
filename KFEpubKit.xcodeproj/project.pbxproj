@@ -26,7 +26,6 @@
 		1D4FFB1D1729846A00AA5D35 /* KFEpubConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */; };
 		1D4FFB21172989E300AA5D35 /* tolstoy-war-and-peace.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */; };
 		1D4FFB231729918900AA5D35 /* valid-comments.opf in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB221729918900AA5D35 /* valid-comments.opf */; };
-		1D7174F8176900FC00CA1E90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7174F7176900FC00CA1E90 /* UIKit.framework */; };
 		1D7174FA176900FC00CA1E90 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7174F9176900FC00CA1E90 /* Foundation.framework */; };
 		1D7174FC176900FC00CA1E90 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7174FB176900FC00CA1E90 /* CoreGraphics.framework */; };
 		1D717502176900FC00CA1E90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D717500176900FC00CA1E90 /* InfoPlist.strings */; };
@@ -35,7 +34,6 @@
 		1D71750A176900FC00CA1E90 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D717509176900FC00CA1E90 /* Default.png */; };
 		1D71750C176900FC00CA1E90 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D71750B176900FC00CA1E90 /* Default@2x.png */; };
 		1D71750E176900FC00CA1E90 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D71750D176900FC00CA1E90 /* Default-568h@2x.png */; };
-		1D717511176900FC00CA1E90 /* KFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D717510176900FC00CA1E90 /* KFViewController.m */; };
 		1D717514176900FC00CA1E90 /* KFViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D717512176900FC00CA1E90 /* KFViewController_iPhone.xib */; };
 		1D717517176900FC00CA1E90 /* KFViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D717515176900FC00CA1E90 /* KFViewController_iPad.xib */; };
 		1D71751C1769030100CA1E90 /* KFEpubConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */; };
@@ -60,13 +58,19 @@
 		1DEB657A1727E18800FDBDC3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65781727E18800FDBDC3 /* MainMenu.xib */; };
 		1DEB65871727FC6700FDBDC3 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
 		1DEB658B1727FFEE00FDBDC3 /* KFEpubContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */; };
+		2C63A9862274EF0B008A026E /* AGameOfThrones.epub in Resources */ = {isa = PBXBuildFile; fileRef = 2C63A9852274EF0A008A026E /* AGameOfThrones.epub */; };
+		2C63A9872274EF0B008A026E /* AGameOfThrones.epub in Resources */ = {isa = PBXBuildFile; fileRef = 2C63A9852274EF0A008A026E /* AGameOfThrones.epub */; };
+		2C63A9882274EF17008A026E /* tolstoy-war-and-peace.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */; };
+		2C63A9892274F000008A026E /* KFEpubKit iOS.app in Resources */ = {isa = PBXBuildFile; fileRef = 1D7174F6176900FC00CA1E90 /* KFEpubKit iOS.app */; };
+		2C63A98C2274F2AD008A026E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C63A98B2274F2AC008A026E /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		2C63A98D2274F374008A026E /* KFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D717510176900FC00CA1E90 /* KFViewController.m */; };
+		2C63A98E2274F4BF008A026E /* KFEpubKit Tests.app in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFAF417290D9800AA5D35 /* KFEpubKit Tests.app */; };
 		5B1C560EB2C844A39C937FFB /* libPods-KFEpubKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9236CF0F044D65B0827915 /* libPods-KFEpubKit.a */; };
 		7294A64600C64AFBA5B8A56E /* libPods-KFEpubKit iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC03826CD99431A927FC302 /* libPods-KFEpubKit iOS.a */; };
 		D0507F3072C34E6A8D7BABC5 /* libPods-KFEpubKit Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4878F171D94147409B51FE24 /* libPods-KFEpubKit Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F12443EF7044523A4B55C0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		1D4CF0421748F173006D3281 /* KFEpubKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = KFEpubKit.podspec; sourceTree = "<group>"; };
 		1D4CF0431748F25E006D3281 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		1D4FFAD817280EC500AA5D35 /* KFEpubExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubExtractor.h; path = Sources/KFEpubExtractor.h; sourceTree = "<group>"; };
@@ -127,12 +131,17 @@
 		1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubParser.m; path = Sources/KFEpubParser.m; sourceTree = "<group>"; };
 		1DEB65891727FFEE00FDBDC3 /* KFEpubContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubContentModel.h; path = Sources/KFEpubContentModel.h; sourceTree = "<group>"; };
 		1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubContentModel.m; path = Sources/KFEpubContentModel.m; sourceTree = "<group>"; };
+		26BD159B63BC38AE793B6F7A /* Pods-KFEpubKit Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit Tests.release.xcconfig"; path = "Target Support Files/Pods-KFEpubKit Tests/Pods-KFEpubKit Tests.release.xcconfig"; sourceTree = "<group>"; };
+		2C63A9852274EF0A008A026E /* AGameOfThrones.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = AGameOfThrones.epub; sourceTree = "<group>"; };
+		2C63A98B2274F2AC008A026E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		4878F171D94147409B51FE24 /* libPods-KFEpubKit Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KFEpubKit Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B4408E124484AB6BF398E61 /* Pods-KFEpubKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit.xcconfig"; path = "Pods/Pods-KFEpubKit.xcconfig"; sourceTree = SOURCE_ROOT; };
-		6D6E7C6C6E6C4380AA7FA32D /* Pods-KFEpubKit Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit Tests.xcconfig"; path = "Pods/Pods-KFEpubKit Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		6E64B32F0E1A034D7560E1C9 /* Pods-KFEpubKit iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit iOS.debug.xcconfig"; path = "Target Support Files/Pods-KFEpubKit iOS/Pods-KFEpubKit iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7B9236CF0F044D65B0827915 /* libPods-KFEpubKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KFEpubKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit iOS.xcconfig"; path = "Pods/Pods-KFEpubKit iOS.xcconfig"; sourceTree = SOURCE_ROOT; };
+		9FFF2E8BBC2FD1A1931C747F /* Pods-KFEpubKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit.debug.xcconfig"; path = "Target Support Files/Pods-KFEpubKit/Pods-KFEpubKit.debug.xcconfig"; sourceTree = "<group>"; };
+		B76BC76F8ABE8F3C9277FB76 /* Pods-KFEpubKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit.release.xcconfig"; path = "Target Support Files/Pods-KFEpubKit/Pods-KFEpubKit.release.xcconfig"; sourceTree = "<group>"; };
+		CF0DCF54900D79EC0E5BDC69 /* Pods-KFEpubKit Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit Tests.debug.xcconfig"; path = "Target Support Files/Pods-KFEpubKit Tests/Pods-KFEpubKit Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DDC03826CD99431A927FC302 /* libPods-KFEpubKit iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KFEpubKit iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F78B24825CE1A862B8AFD73A /* Pods-KFEpubKit iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit iOS.release.xcconfig"; path = "Target Support Files/Pods-KFEpubKit iOS/Pods-KFEpubKit iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D7174F8176900FC00CA1E90 /* UIKit.framework in Frameworks */,
+				2C63A98C2274F2AD008A026E /* UIKit.framework in Frameworks */,
 				1D7174FA176900FC00CA1E90 /* Foundation.framework in Frameworks */,
 				1D7174FC176900FC00CA1E90 /* CoreGraphics.framework in Frameworks */,
 				7294A64600C64AFBA5B8A56E /* libPods-KFEpubKit iOS.a in Frameworks */,
@@ -273,10 +282,7 @@
 				1D7174FD176900FC00CA1E90 /* KFEpubKit iOS */,
 				1DEB65621727E18800FDBDC3 /* Frameworks */,
 				1DEB65611727E18800FDBDC3 /* Products */,
-				0F12443EF7044523A4B55C0A /* Pods.xcconfig */,
-				6D6E7C6C6E6C4380AA7FA32D /* Pods-KFEpubKit Tests.xcconfig */,
-				5B4408E124484AB6BF398E61 /* Pods-KFEpubKit.xcconfig */,
-				9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */,
+				735B1A5883AEC48AA4AEB58A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -293,6 +299,7 @@
 		1DEB65621727E18800FDBDC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C63A98B2274F2AC008A026E /* UIKit.framework */,
 				1DEB65631727E18800FDBDC3 /* Cocoa.framework */,
 				1D7174F7176900FC00CA1E90 /* UIKit.framework */,
 				1D7174F9176900FC00CA1E90 /* Foundation.framework */,
@@ -345,6 +352,7 @@
 		1DEB65821727E43400FDBDC3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C63A9852274EF0A008A026E /* AGameOfThrones.epub */,
 				1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */,
 			);
 			path = Resources;
@@ -369,6 +377,19 @@
 			name = Sources;
 			sourceTree = "<group>";
 		};
+		735B1A5883AEC48AA4AEB58A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FFF2E8BBC2FD1A1931C747F /* Pods-KFEpubKit.debug.xcconfig */,
+				B76BC76F8ABE8F3C9277FB76 /* Pods-KFEpubKit.release.xcconfig */,
+				CF0DCF54900D79EC0E5BDC69 /* Pods-KFEpubKit Tests.debug.xcconfig */,
+				26BD159B63BC38AE793B6F7A /* Pods-KFEpubKit Tests.release.xcconfig */,
+				6E64B32F0E1A034D7560E1C9 /* Pods-KFEpubKit iOS.debug.xcconfig */,
+				F78B24825CE1A862B8AFD73A /* Pods-KFEpubKit iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -376,12 +397,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D4FFAF117290D9800AA5D35 /* Build configuration list for PBXNativeTarget "KFEpubKit Tests" */;
 			buildPhases = (
+				24AF568C88CF02F793AF7502 /* [CP] Check Pods Manifest.lock */,
 				F65BBA73D4194947B61B1844 /* Check Pods Manifest.lock */,
 				1D4FFAE117290D9800AA5D35 /* Sources */,
 				1D4FFAE817290D9800AA5D35 /* Frameworks */,
 				1D4FFAEB17290D9800AA5D35 /* Resources */,
 				1D4FFAF017290D9800AA5D35 /* Copy Pods Resources */,
 				16FC63B3E311459EAD23E789 /* Copy Pods Resources */,
+				B7CF13B2F1000BAB700D941C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -396,11 +419,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D71751A176900FC00CA1E90 /* Build configuration list for PBXNativeTarget "KFEpubKit iOS" */;
 			buildPhases = (
+				0012229F06FB4A2DAAB3BD13 /* [CP] Check Pods Manifest.lock */,
 				E8985D254DE04BE4876B249B /* Check Pods Manifest.lock */,
 				1D7174F2176900FC00CA1E90 /* Sources */,
 				1D7174F3176900FC00CA1E90 /* Frameworks */,
 				1D7174F4176900FC00CA1E90 /* Resources */,
-				19578244592F4519920EF34C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -415,13 +438,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB657D1727E18800FDBDC3 /* Build configuration list for PBXNativeTarget "KFEpubKit" */;
 			buildPhases = (
+				75E5625F4FA5214AE3CC8725 /* [CP] Check Pods Manifest.lock */,
 				260B99BE768A4654AC75D944 /* Check Pods Manifest.lock */,
 				622A460046AD498B9C7DA289 /* Check Pods Manifest.lock */,
 				1DEB655C1727E18800FDBDC3 /* Sources */,
 				1DEB655D1727E18800FDBDC3 /* Frameworks */,
 				1DEB655E1727E18800FDBDC3 /* Resources */,
-				4802EEF392AB43118F671E11 /* Copy Pods Resources */,
-				5ADD9D794FC542E7ABCA2357 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -440,12 +462,24 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "KF Interactive";
+				TargetAttributes = {
+					1D4FFADF17290D9800AA5D35 = {
+						DevelopmentTeam = 8Z7WM5742Z;
+					};
+					1D7174F5176900FC00CA1E90 = {
+						DevelopmentTeam = 8Z7WM5742Z;
+					};
+					1DEB655F1727E18800FDBDC3 = {
+						DevelopmentTeam = 8Z7WM5742Z;
+					};
+				};
 			};
 			buildConfigurationList = 1DEB655B1727E18800FDBDC3 /* Build configuration list for PBXProject "KFEpubKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 1DEB65571727E18800FDBDC3;
@@ -469,6 +503,7 @@
 				1D4FFAED17290D9800AA5D35 /* Credits.rtf in Resources */,
 				1D4FFAEE17290D9800AA5D35 /* MainMenu.xib in Resources */,
 				1D4FFB0017291D4C00AA5D35 /* valid.opf in Resources */,
+				2C63A98E2274F4BF008A026E /* KFEpubKit Tests.app in Resources */,
 				1D4FFB031729251A00AA5D35 /* invalid-toc.opf in Resources */,
 				1D4FFB0517292EA500AA5D35 /* invalid-manifest.opf in Resources */,
 				1D4FFB0B17293ABB00AA5D35 /* tolstoy-war-and-peace.epub in Resources */,
@@ -481,12 +516,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C63A9872274EF0B008A026E /* AGameOfThrones.epub in Resources */,
 				1D717502176900FC00CA1E90 /* InfoPlist.strings in Resources */,
 				1D71750A176900FC00CA1E90 /* Default.png in Resources */,
 				1D71750C176900FC00CA1E90 /* Default@2x.png in Resources */,
 				1D71750E176900FC00CA1E90 /* Default-568h@2x.png in Resources */,
+				2C63A9882274EF17008A026E /* tolstoy-war-and-peace.epub in Resources */,
 				1D717514176900FC00CA1E90 /* KFViewController_iPhone.xib in Resources */,
 				1D717517176900FC00CA1E90 /* KFViewController_iPad.xib in Resources */,
+				2C63A9892274F000008A026E /* KFEpubKit iOS.app in Resources */,
 				1D7175281769102500CA1E90 /* tolstoy-war-and-peace.epub in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C63A9862274EF0B008A026E /* AGameOfThrones.epub in Resources */,
 				1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */,
 				1DEB65741727E18800FDBDC3 /* Credits.rtf in Resources */,
 				1DEB657A1727E18800FDBDC3 /* MainMenu.xib in Resources */,
@@ -505,6 +544,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0012229F06FB4A2DAAB3BD13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KFEpubKit iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		16FC63B3E311459EAD23E789 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -518,20 +579,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-KFEpubKit Tests-resources.sh\"\n";
-		};
-		19578244592F4519920EF34C /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-KFEpubKit iOS-resources.sh\"\n";
 		};
 		1D4FFAF017290D9800AA5D35 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -547,6 +594,28 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
+		24AF568C88CF02F793AF7502 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KFEpubKit Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		260B99BE768A4654AC75D944 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -561,34 +630,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
 		};
-		4802EEF392AB43118F671E11 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-		};
-		5ADD9D794FC542E7ABCA2357 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-KFEpubKit-resources.sh\"\n";
-		};
 		622A460046AD498B9C7DA289 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -602,6 +643,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+		};
+		75E5625F4FA5214AE3CC8725 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KFEpubKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7CF13B2F1000BAB700D941C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KFEpubKit Tests/Pods-KFEpubKit Tests-resources.sh",
+				"${PODS_ROOT}/GHUnit/Classes-MacOSX/UI/GHTestApp.xib",
+				"${PODS_ROOT}/GHUnit/Classes-MacOSX/UI/GHTestView.xib",
+				"${PODS_ROOT}/GHUnit/Classes-MacOSX/UI/GHTestWindow.xib",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GHTestApp.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GHTestView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GHTestWindow.nib",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KFEpubKit Tests/Pods-KFEpubKit Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		E8985D254DE04BE4876B249B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -658,8 +747,8 @@
 			files = (
 				1D717504176900FC00CA1E90 /* main.m in Sources */,
 				1D717508176900FC00CA1E90 /* KFAppDelegate.m in Sources */,
-				1D717511176900FC00CA1E90 /* KFViewController.m in Sources */,
 				1D7175221769030400CA1E90 /* KFEpubConstants.m in Sources */,
+				2C63A98D2274F374008A026E /* KFViewController.m in Sources */,
 				1D7175231769030400CA1E90 /* KFEpubContentModel.m in Sources */,
 				1D7175241769030400CA1E90 /* KFEpubController.m in Sources */,
 				1D7175251769030400CA1E90 /* KFEpubExtractor.m in Sources */,
@@ -739,11 +828,12 @@
 /* Begin XCBuildConfiguration section */
 		1D4FFAF217290D9800AA5D35 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D6E7C6C6E6C4380AA7FA32D /* Pods-KFEpubKit Tests.xcconfig */;
+			baseConfigurationReference = CF0DCF54900D79EC0E5BDC69 /* Pods-KFEpubKit Tests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8Z7WM5742Z;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KFEpubKit/KFEpubKit-Prefix.pch";
 				INFOPLIST_FILE = "EpubKitTests/KFEpubKitTests-Info.plist";
@@ -754,11 +844,12 @@
 		};
 		1D4FFAF317290D9800AA5D35 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D6E7C6C6E6C4380AA7FA32D /* Pods-KFEpubKit Tests.xcconfig */;
+			baseConfigurationReference = 26BD159B63BC38AE793B6F7A /* Pods-KFEpubKit Tests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8Z7WM5742Z;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KFEpubKit/KFEpubKit-Prefix.pch";
 				INFOPLIST_FILE = "EpubKitTests/KFEpubKitTests-Info.plist";
@@ -769,9 +860,10 @@
 		};
 		1D717518176900FC00CA1E90 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */;
+			baseConfigurationReference = 6E64B32F0E1A034D7560E1C9 /* Pods-KFEpubKit iOS.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8Z7WM5742Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
@@ -779,19 +871,20 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KFEpubKit iOS/KFEpubKit iOS-Prefix.pch";
 				INFOPLIST_FILE = "KFEpubKit iOS/KFEpubKit iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		1D717519176900FC00CA1E90 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */;
+			baseConfigurationReference = F78B24825CE1A862B8AFD73A /* Pods-KFEpubKit iOS.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8Z7WM5742Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
@@ -799,11 +892,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KFEpubKit iOS/KFEpubKit iOS-Prefix.pch";
 				INFOPLIST_FILE = "KFEpubKit iOS/KFEpubKit iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -836,7 +929,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -863,18 +956,19 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		1DEB657E1727E18800FDBDC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B4408E124484AB6BF398E61 /* Pods-KFEpubKit.xcconfig */;
+			baseConfigurationReference = 9FFF2E8BBC2FD1A1931C747F /* Pods-KFEpubKit.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8Z7WM5742Z;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KFEpubKit/KFEpubKit-Prefix.pch";
 				INFOPLIST_FILE = "KFEpubKit/KFEpubKit-Info.plist";
@@ -885,11 +979,12 @@
 		};
 		1DEB657F1727E18800FDBDC3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B4408E124484AB6BF398E61 /* Pods-KFEpubKit.xcconfig */;
+			baseConfigurationReference = B76BC76F8ABE8F3C9277FB76 /* Pods-KFEpubKit.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8Z7WM5742Z;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KFEpubKit/KFEpubKit-Prefix.pch";
 				INFOPLIST_FILE = "KFEpubKit/KFEpubKit-Info.plist";
