@@ -36,7 +36,6 @@ class mbBooksParser: NSObject {
         } else if (mimetype == kMimeTypeiBooks) {
             bookType = mbBooksBookType.iBook
         }
-        
         return bookType
     }
 
@@ -278,9 +277,7 @@ class mbBooksParser: NSObject {
             let itemElements = (manifestNodes?[0] as? XMLElement)?.children
             for xmlElement in itemElements as? [XMLElement] ?? [] {
                 if isValidNode(xmlElement) && (xmlElement.attributes != nil) {
-                    NSLog(" spineElement is \(xmlElement.description)")
                     let href = self.mbRetrieveKey(for: "href", in: xmlElement.description)
-                    NSLog(" href is \(href)")
                     let itemId = self.mbRetrieveKey(for: "id", in: xmlElement.description)
                     let mediaType = self.mbRetrieveKey(for: "media-type", in: xmlElement.description)
                     items=[:]

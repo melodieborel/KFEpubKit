@@ -8,12 +8,17 @@
 
 import Foundation
 import KFToolbar
+import Cocoa
 
 
 class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
     
     @IBOutlet weak var textView: NSTextView!
     @IBOutlet weak var bottomToolbar: KFToolbar!
+    @IBOutlet weak var myWindow: NSWindow!
+    @IBOutlet weak var theScroll: NSScrollView!
+    
+    let appDelegate = NSApplication.shared.delegate as! AppDelegate
     
     private var strokeTextAttributes = [
         NSAttributedString.Key.strokeColor : NSColor.white,
@@ -25,26 +30,21 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
     
     private var epubController: mbBooksController?
     private var libraryURL: URL?
-    private var spineIndex: Int = 0
+    private var spineIndex: Int = 11
+    private var spineMax: Int = 0
+    
     private var contentModel: mbBooksContentModel?
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        //NavigationOutline.reloadData()
+
         
-        
-        /**
-        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-        style.lineBreakMode = NSLineBreakByTruncatingTail;
-        [text addAttribute:NSParagraphStyleAttributeName
-        value:style
-        range:NSMakeRange(0, text.length)];
-        */
         textView.linkTextAttributes = strokeTextAttributes
         textView.textStorage?.setAttributedString(currenttext);
-        
+        theScroll.verticalPageScroll = 0.0
         
         var error: Error? = nil
         var dataIsStale: Bool
@@ -69,8 +69,9 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
                     self.updateContent(forSpineIndex: self.spineIndex)
                 }
             case 1:
-                if self.spineIndex < self.contentModel!.spine.count {
+                if self.spineIndex < self.spineMax {
                     self.spineIndex += 1
+                    print(self.spineIndex)
                     self.updateContent(forSpineIndex: self.spineIndex)
                 }
             default:
@@ -92,6 +93,11 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
             
         }
         
+    }
+    
+    override func viewDidAppear() {
+        //self.view.window?.title = self.contentModel?.metaData["title"] as! String
+        //print("the title is \(self.contentModel?.metaData["title"])")
     }
     
     func requestLibraryURL() {
@@ -117,34 +123,60 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
     
     
     func testEpubsInMainBundleResources() {
-        let epubURL = URL(fileURLWithPath: "/Users/MB/Desktop/GoT/AGameOfThrones.epub")
-        
-        libraryURL!.startAccessingSecurityScopedResource()
-        epubController = mbBooksController(epubURL: epubURL, andDestinationFolder: libraryURL)
-        epubController!.delegate = self
-        epubController!.openAsynchronous(false)
+        let moc = appDelegate.managedObjectContext
+        let booksFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Books")
+        do {
+            let allBooks = try moc.fetch(booksFetch) as! [mbBooksContentModel]
+            print("I found a book : \(allBooks)")
+            if (allBooks == []) {
+                print("there is no book so i import one")
+            //}
+                let epubURL = URL(fileURLWithPath: "/Users/MB/Desktop/GoT/AGameOfThrones.epub")
+                libraryURL!.startAccessingSecurityScopedResource()
+                epubController = mbBooksController(epubURL: epubURL, andDestinationFolder: libraryURL?.appendingPathComponent(epubURL.deletingPathExtension().lastPathComponent))
+                epubController!.delegate = self
+                epubController!.openAsynchronous(false)
+            }
+            
+            else {
+                    
+                let chapsFetch = NSFetchRequest<mbChapters>(entityName: "Chapters")
+                let allchaphrefs = try moc.fetch(chapsFetch)
+                self.spineMax = allchaphrefs.count
+                    
+                self.contentModel = allBooks[0]
+                updateContent(forSpineIndex: self.spineIndex)
+                /** to erase all books
+                    for item in allBooks {
+                        moc.delete(item)
+                    }
+                    // Save Changes
+                    try moc.save()
+                    */
+                }
+        } catch {
+            fatalError("Failed to fetch any book: \(error)")
+        }
     }
     
     func updateContent(forSpineIndex currentSpineIndex: Int) {
-        let theFile = contentModel!.manifest.object(forKey: contentModel!.spine[currentSpineIndex]) as! NSDictionary
-        let contentFile = theFile.object(forKey: "href") as! String
-        let contentURL = epubController?.epubContentBaseURL!.appendingPathComponent(contentFile)
-        NSLog("the contentURL \(contentURL)\n\n")
+
+        let moc = appDelegate.managedObjectContext
+
+        do {
+
+            let chapsFetch = NSFetchRequest<mbChapters>(entityName: "Chapters")
+            chapsFetch.predicate = NSPredicate(format: "chapNo = %@", argumentArray: [self.spineIndex])
+            let thechaphref = try moc.fetch(chapsFetch)
+            
+            
+            
+            let contentURL = URL(fileURLWithPath: self.contentModel!.mbBookPath!).appendingPathComponent("OEBPS").appendingPathComponent(thechaphref[0].chapterPath)
+
+            var dict: NSDictionary? = [:]
         
-        
-        /**let modifiedFont = NSString(format:"<span style=\"font-family: \(self.font!.fontName); font-size: \(self.font!.pointSize)\">%@</span>" as NSString, text)
-        let modifiedFont = NSString(format:"<span font-size: 46\">%@</span>" as NSString, text)
-        
-        let attrStr = try! NSAttributedString(
-            data: modifiedFont.data(using: String.Encoding.unicode.rawValue, allowLossyConversion: true)!,
-            options: [NSAttributedString.DocumentReadingOptionKey.documentType:NSAttributedString.DocumentType.html, NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue],
-            documentAttributes: nil)
-*/
-        var dict: NSDictionary? = [:]
-        
-        let theAttributedString = NSMutableAttributedString(url: contentURL!, documentAttributes: &dict)
-        print(dict)
-        
+            let theAttributedString = NSMutableAttributedString(url: contentURL as! URL, documentAttributes: &dict)
+
         strokeTextAttributes = [
             NSAttributedString.Key.strokeColor : NSColor.white,
             NSAttributedString.Key.foregroundColor : NSColor.white,
@@ -166,14 +198,14 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
                                         output!.addAttribute(NSAttributedString.Key.font, value: newFont, range: range)
             }
             output!.endEditing()
-            
-            //let data = NSData(contentsOf: contentURL!)
-            //try! let theAttributedString = NSMutableAttributedString(html: data, documentAttributes: strokeTextAttributes)
+
             try! theAttributedString!.addAttribute(.foregroundColor, value: NSColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1), range: NSRange(location: 0, length: theAttributedString!.length))
-            //try! theAttributedString!.setAttributes(strokeTextAttributes, range: NSRange(location: 0, length: theAttributedString!.length))
         } catch {}
         textView!.textStorage?.setAttributedString(theAttributedString!)
         textView.linkTextAttributes = strokeTextAttributes
+        } catch {
+            fatalError("Failed to fetch any chapter: \(error)")
+        }
     }
     
     
@@ -185,9 +217,8 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
     
     
     func epubController(_ controller: mbBooksController?, didOpenEpub contentModel: mbBooksContentModel?) {
-        self.view.window?.title = contentModel?.metaData["title"] as! String
         self.contentModel = contentModel
-        spineIndex = 1
+        spineIndex = 11
         updateContent(forSpineIndex: spineIndex)
     }
     

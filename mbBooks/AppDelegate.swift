@@ -7,11 +7,12 @@
 //
 
 import Cocoa
+import CoreData
 
 @NSApplicationMain
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         let viewController = mbBooksViewController()
@@ -24,18 +25,49 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
+    func openFiles() {
+        let panel = NSOpenPanel()
+        panel.allowedFileTypes = VALID_FILE_TYPES
+        panel.allowsMultipleSelection = true
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = true
+        let modalResponse = panel.runModal()
+        if modalResponse.rawValue == NSApplication.ModalResponse.OK.rawValue {
+            //let urls = self.databaseManager?.getMediaURLsInDirectoryURLs(panel.urls).0
+            //self.launchAddFilesDialog()
+            //self.addFilesQueueLoop?.addChunksToQueue(urls: urls!)
+            //self.addFilesQueueLoop?.start()
+        }
+        
+    }
+    
+    lazy var libraryController: mbLibraryViewController? =
+        NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "mbLibraryStoryboard")
+            as? mbLibraryViewController
+    
+    @IBAction func openPreferences(sender: NSMenuItem) {
+        if let vc = libraryController {
+            let myWindow = NSWindow(contentViewController: vc)
+            myWindow.makeKeyAndOrderFront(self)
+            let controller = NSWindowController(window: myWindow)
+            controller.showWindow(self)
+        }
+        
+    }
+    
+    
     // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: Foundation.URL = {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.apple.toolsQA.CocoaApp_CD" in the user's Application Support directory.
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "melodieborel.mbBooks" in the user's Application Support directory.
         let urls = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
         let appSupportURL = urls[urls.count - 1]
-        return appSupportURL.appendingPathComponent("com.apple.toolsQA.CocoaApp_CD")
+        return appSupportURL.appendingPathComponent("melodieborel.mbBooks")
     }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = Bundle.main.url(forResource: "Colony", withExtension: "momd")!
+        let modelURL = Bundle.main.url(forResource: "mbBooks", withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
@@ -70,9 +102,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var coordinator: NSPersistentStoreCoordinator? = nil
         if failError == nil {
             coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-            let url = self.applicationDocumentsDirectory.appendingPathComponent("Colony.storedata")
+            let url = self.applicationDocumentsDirectory.appendingPathComponent("mbBooks.db")
             do {
-                try coordinator!.addPersistentStore(ofType: NSXMLStoreType, configurationName: nil, at: url, options: nil)
+                var options = [AnyHashable : Any]()
+                options[NSMigratePersistentStoresAutomaticallyOption] = true
+                options[NSInferMappingModelAutomaticallyOption] = true
+                options[NSSQLitePragmasOption] = ["journal_mode" : "DELETE"]
+                try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
+                //try coordinator!.addPersistentStore(ofType: NSXMLStoreType, configurationName: nil, at: url, options: nil)
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 
@@ -89,11 +126,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if shouldFail || (failError != nil) {
             // Report any error we got.
+            var dict = [String: AnyObject]()
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject?
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
+            if failError != nil {
+                dict[NSUnderlyingErrorKey] = failError
+            }
+            let error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            NSApplication.shared.presentError(error)
+            abort()
+            /** originallly was:
             if let error = failError {
                 NSApplication.shared.presentError(error)
                 fatalError("Unresolved error: \(error), \(error.userInfo)")
             }
             fatalError("Unsresolved error: \(failureReason)")
+             */
         } else {
             return coordinator!
         }

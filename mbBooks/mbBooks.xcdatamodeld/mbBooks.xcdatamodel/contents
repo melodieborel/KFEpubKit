@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E227" minimumToolsVersion="Xcode 7.3" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Books" representedClassName=".mbBooksContentModel" syncable="YES">
+        <attribute name="coverPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isRTL" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="mbBookEncryption" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" customClassName="mbBooksBookEncryption" syncable="YES"/>
+        <attribute name="mbBookID" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="mbBookPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mbBookTitle" attributeType="String" defaultValueString="&quot;&quot;" syncable="YES"/>
+        <attribute name="mbBookType" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" customClassName="mbBooksBookType" syncable="YES"/>
+        <relationship name="chapters" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Chapters" inverseName="fromBook" inverseEntity="Chapters" syncable="YES"/>
+    </entity>
+    <entity name="Chapters" representedClassName=".mbChapters" syncable="YES">
+        <attribute name="chapNo" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="chapterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fromBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Books" inverseName="chapters" inverseEntity="Books" syncable="YES"/>
+    </entity>
+    <entity name="Readings" syncable="YES">
+        <attribute name="bookID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bookMark" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="readingDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Books" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Chapters" positionX="182.22265625" positionY="-72.5859375" width="128" height="90"/>
+        <element name="Readings" positionX="0.0625" positionY="-205.796875" width="128" height="90"/>
+    </elements>
+</model>

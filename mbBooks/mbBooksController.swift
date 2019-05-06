@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 @objc protocol mbBooksControllerDelegate: NSObjectProtocol {
     func epubController(_ controller: mbBooksController?, didOpenEpub contentModel: mbBooksContentModel?)
@@ -21,9 +22,12 @@ class mbBooksController: NSObject, mbBooksExtractorDelegate {
     private(set) var epubURL: URL?
     private(set) var destinationURL: URL?
     private(set) var epubContentBaseURL: URL?
-    private(set) var contentModel: mbBooksContentModel?
+    //private(set) var contentModel: mbBooksContentModel?
     private var extractor: mbBooksExtractor?
     private var parser: mbBooksParser?
+    let appDelegate = NSApplication.shared.delegate as! AppDelegate
+    
+
     
     init(epubURL: URL?, andDestinationFolder destinationURL: URL?) {
         super.init()
@@ -57,8 +61,6 @@ class mbBooksController: NSObject, mbBooksExtractorDelegate {
         
         epubContentBaseURL = rootFile?.deletingLastPathComponent()
 
-        
-        var error: Error? = nil
         var content: String? = nil
         do {
             content = try String(contentsOf: rootFile!, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
@@ -72,26 +74,50 @@ class mbBooksController: NSObject, mbBooksExtractorDelegate {
         }
         
         if document != nil {
-            contentModel = mbBooksContentModel()
+            let managedObjectContext = appDelegate.managedObjectContext
             
-            contentModel!.bookType = parser!.bookType(forBaseURL: destinationURL)
-            contentModel!.bookEncryption = parser!.contentEncryption(forBaseURL: destinationURL)
-            contentModel!.metaData = parser!.metaData(from: document)!
-            contentModel!.coverPath = parser!.coverPathComponent(from: document)!
-            contentModel!.isRTL = parser!.isRTL(from: document)
+            let thisBook = NSEntityDescription.insertNewObject(forEntityName: "Books", into: managedObjectContext) as! mbBooksContentModel
             
-            if contentModel?.metaData == nil {
+            thisBook.mbBookPath = destinationURL?.path
+            thisBook.mbBookType = parser!.bookType(forBaseURL: destinationURL).rawValue
+            thisBook.mbBookEncryption = parser!.contentEncryption(forBaseURL: destinationURL).rawValue
+            
+            thisBook.metaData = parser!.metaData(from: document)!
+            thisBook.coverPath = parser!.coverPathComponent(from: document)!
+            print(thisBook.mbBookPath)
+            thisBook.isRTL = parser!.isRTL(from: document)
+            
+            if thisBook.metaData == nil {
                 var error = NSError(domain: mbBooksErrorDomain as String, code: 1, userInfo: [
                     NSLocalizedDescriptionKey: "No meta data found"
                     ])
                 delegate!.epubController(self, didFailWithError: error)
             } else {
-                contentModel!.manifest = parser!.manifest(from: document)!
-                contentModel!.spine = parser!.spine(from: document)
-                contentModel!.guide = parser!.guide(from: document)!
-                if (delegate != nil) {
-                    delegate!.epubController(self, didOpenEpub: contentModel)
+                thisBook.setValue(thisBook.metaData.value(forKey: "title") as! String, forKey: "mbBookTitle")
+                
+                thisBook.manifest = parser!.manifest(from: document)!
+                thisBook.spine = parser!.spine(from: document)
+                thisBook.guide = parser!.guide(from: document)!
+                
+                for (i,element) in parser!.spine(from: document).enumerated() {
+                    
+                     let theFile = thisBook.manifest.object(forKey: element) as! NSDictionary
+                    
+                    let thisChap = NSEntityDescription.insertNewObject(forEntityName: "Chapters", into: managedObjectContext) as! mbChapters
+                    thisChap.chapterPath = theFile.object(forKey: "href") as! String
+                    thisChap.chapNo = Int32(i)
+                    thisChap.fromBook = thisBook
                 }
+
+                
+                if (delegate != nil) {
+                    delegate!.epubController(self, didOpenEpub: thisBook)
+                }
+            }
+            do {
+                try managedObjectContext.save()
+            } catch {
+                fatalError("Failure to save context: \(error)")
             }
         }
         else {

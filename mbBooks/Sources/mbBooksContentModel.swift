@@ -7,16 +7,26 @@
 //
 
 import Foundation
+import CoreData
 
-class mbBooksContentModel: NSObject {
+class mbBooksContentModel: NSManagedObject {
     
-    var bookType: mbBooksBookType?
-    var bookEncryption: mbBooksBookEncryption?
     var metaData: NSMutableDictionary = [:]
-    var coverPath = ""
     var manifest: NSMutableDictionary = [:]
     var spine: [String] = []
     var guide: [Any] = []
-    var isRTL = false
+    
+    @NSManaged var mbBookTitle: String?
+    @NSManaged var mbBookPath: String?
+    
+    @NSManaged var mbBookType: Int16
+    @NSManaged var mbBookEncryption: Int16
+    
+    @NSManaged var coverPath: String?
+    @NSManaged var chapters: NSSet
+    
+    @NSManaged var isRTL: Bool
+    
+    @NSManaged var bookMark: Int32
     
 }

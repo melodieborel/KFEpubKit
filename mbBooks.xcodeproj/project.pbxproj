@@ -39,6 +39,9 @@
 		2C25EA2D227B048B002D453A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C12A5A6227977E700CA6076 /* Main.storyboard */; };
 		2C25EA2E227B048C002D453A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C12A5A6227977E700CA6076 /* Main.storyboard */; };
 		2C25EA30227B2471002D453A /* mbBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C25EA2F227B2471002D453A /* mbBooksViewController.swift */; };
+		2C42E17A227E064700D90DD2 /* mbLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42E179227E064700D90DD2 /* mbLibraryViewController.swift */; };
+		2C42E17E227ED21B00D90DD2 /* mbChapters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42E17C227ED21B00D90DD2 /* mbChapters.swift */; };
+		2C46C83E227C360F0084C03E /* mbBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C46C83C227C360E0084C03E /* mbBooks.xcdatamodeld */; };
 		2C63A9882274EF17008A026E /* tolstoy-war-and-peace.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */; };
 		2C63A9892274F000008A026E /* mbBooks iOS.app in Resources */ = {isa = PBXBuildFile; fileRef = 1D7174F6176900FC00CA1E90 /* mbBooks iOS.app */; };
 		2C63A98C2274F2AD008A026E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C63A98B2274F2AC008A026E /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -113,6 +116,9 @@
 		1F192F860501B481C437173E /* libPods-mbBooks iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mbBooks iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C12A5A7227977E700CA6076 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C25EA2F227B2471002D453A /* mbBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbBooksViewController.swift; sourceTree = "<group>"; };
+		2C42E179227E064700D90DD2 /* mbLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbLibraryViewController.swift; sourceTree = "<group>"; };
+		2C42E17C227ED21B00D90DD2 /* mbChapters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mbChapters.swift; sourceTree = "<group>"; };
+		2C46C83D227C360E0084C03E /* mbBooks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mbBooks.xcdatamodel; sourceTree = "<group>"; };
 		2C63A98B2274F2AC008A026E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		2C63A99022757102008A026E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/KFViewController_iPhone.xib; sourceTree = "<group>"; };
 		2C63A99122757102008A026E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/KFViewController_iPad.xib; sourceTree = "<group>"; };
@@ -319,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				1D4FFADE1728255100AA5D35 /* mbBooks.entitlements */,
+				2C46C83C227C360E0084C03E /* mbBooks.xcdatamodeld */,
 				1DEB65881727FC7100FDBDC3 /* Sources */,
 				1DEB656A1727E18800FDBDC3 /* Supporting Files */,
 				2C63A99522775E74008A026E /* AppDelegate.swift */,
@@ -351,12 +358,14 @@
 		1DEB65881727FC7100FDBDC3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2C42E17C227ED21B00D90DD2 /* mbChapters.swift */,
 				2C25EA2F227B2471002D453A /* mbBooksViewController.swift */,
 				2C99472A22784BB100C8CB9D /* mbBooksController.swift */,
 				2C99472C22784C9300C8CB9D /* mbBooksConstants.swift */,
 				2C99472E22784E7E00C8CB9D /* mbBooksContentModel.swift */,
 				2C9947382278A51700C8CB9D /* mbBooksParser.swift */,
 				2C63A99722783784008A026E /* mbBooksExtractor.swift */,
+				2C42E179227E064700D90DD2 /* mbLibraryViewController.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -699,12 +708,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C99473A2278AAD800C8CB9D /* AppDelegate.swift in Sources */,
+				2C46C83E227C360F0084C03E /* mbBooks.xcdatamodeld in Sources */,
 				2C25EA30227B2471002D453A /* mbBooksViewController.swift in Sources */,
 				2C9947392278A51700C8CB9D /* mbBooksParser.swift in Sources */,
 				2C9947302278523C00C8CB9D /* mbBooksConstants.swift in Sources */,
 				2C9947372278A4DD00C8CB9D /* mbBooksExtractor.swift in Sources */,
 				2C9947362278A29500C8CB9D /* mbBooksController.swift in Sources */,
 				2C99473522789E2E00C8CB9D /* mbBooksContentModel.swift in Sources */,
+				2C42E17E227ED21B00D90DD2 /* mbChapters.swift in Sources */,
+				2C42E17A227E064700D90DD2 /* mbLibraryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1069,6 +1081,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2C46C83C227C360E0084C03E /* mbBooks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2C46C83D227C360E0084C03E /* mbBooks.xcdatamodel */,
+			);
+			currentVersion = 2C46C83D227C360E0084C03E /* mbBooks.xcdatamodel */;
+			path = mbBooks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1DEB65581727E18800FDBDC3 /* Project object */;
 }

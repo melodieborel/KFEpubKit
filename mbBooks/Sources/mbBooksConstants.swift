@@ -8,14 +8,14 @@
 
 import Foundation
 
-@objc public enum mbBooksBookType: Int {
+@objc public enum mbBooksBookType: Int16 {
     case Unknown
     case Epub2
     case Epub3
     case iBook
 }
 
-public enum mbBooksBookEncryption: Int {
+public enum mbBooksBookEncryption: Int16 {
     case None
     case Fairplay
 }
@@ -25,3 +25,5 @@ public let mbBooksErrorDomain :NSString = "mbBooksErrorDomain";
 public class mbBooksConstants: NSObject {
     
  }
+
+let VALID_FILE_TYPES = ["epub"]
