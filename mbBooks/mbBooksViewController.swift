@@ -7,14 +7,12 @@
 //
 
 import Foundation
-import KFToolbar
 import Cocoa
 
 
 class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
     
     @IBOutlet weak var textView: NSTextView!
-    @IBOutlet weak var bottomToolbar: KFToolbar!
     @IBOutlet weak var myWindow: NSWindow!
     @IBOutlet weak var theScroll: NSScrollView!
     
@@ -35,8 +33,7 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
     
     private var contentModel: mbBooksContentModel?
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -46,39 +43,11 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
         textView.textStorage?.setAttributedString(currenttext);
         theScroll.verticalPageScroll = 0.0
         
-        var error: Error? = nil
-        var dataIsStale: Bool
-        let previousSpine = KFToolbarItem(icon: NSImage(named: NSImage.goLeftTemplateName), tag: 0)
-        previousSpine!.toolTip = NSLocalizedString("Previous", comment: "")
-        previousSpine!.keyEquivalent = "a"
-        previousSpine!.keyEquivalentModifierMask = 48 //option
-        
-        let nextSpine = KFToolbarItem(icon: NSImage(named: NSImage.goRightTemplateName), tag: 1)
-        nextSpine!.toolTip = NSLocalizedString("Next", comment: "")
-        nextSpine!.keyEquivalent = "s"
-        nextSpine!.keyEquivalentModifierMask = 48 //option
-        
-        bottomToolbar.leftItems = [previousSpine!]
-        bottomToolbar.rightItems = [nextSpine!]
-        
-        bottomToolbar.setItemSelectionHandler({ (selectionType, toolbarItem, tag) in
-            switch tag {
-            case 0:
-                if self.spineIndex > 1 {
-                    self.spineIndex -= 1
-                    self.updateContent(forSpineIndex: self.spineIndex)
-                }
-            case 1:
-                if self.spineIndex < self.spineMax {
-                    self.spineIndex += 1
-                    print(self.spineIndex)
-                    self.updateContent(forSpineIndex: self.spineIndex)
-                }
-            default:
-                break
-            }
-        })
-        
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            self.keyDown(with: $0)
+            return $0
+        }
+
         textView!.textContainerInset = NSMakeSize(40.0, 40.0)
         let securityBookmark = try! UserDefaults.standard.string(forKey: "mbBooksFolder")
         NSLog("security bookmark is \(securityBookmark)");
@@ -93,6 +62,36 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
             
         }
         
+    }
+    
+    override func keyDown(with theEvent: NSEvent) // A key is pressed
+    {
+        if theEvent.keyCode == 123
+        {
+            if self.spineIndex > 1 {
+                self.spineIndex -= 1
+                self.updateContent(forSpineIndex: self.spineIndex)
+                textView.scrollToBeginningOfDocument(self)
+            }
+        }
+        else if theEvent.keyCode == 124
+        {
+            if self.spineIndex < self.spineMax {
+                self.spineIndex += 1
+                self.updateContent(forSpineIndex: self.spineIndex)
+                textView.scrollToBeginningOfDocument(self)
+            }
+        }
+        else if theEvent.keyCode == 125
+        {
+            textView.scrollPageDown(self)
+        }
+        else if theEvent.keyCode == 126
+        {
+            textView.scrollPageUp(self)
+            //textView.scrollRangeToVisible(NSRange(location: self.inChapPos, length: (textView.textStorage?.characters.count)!))
+        }
+        //print("Key with number: \(theEvent.keyCode) was pressed")
     }
     
     override func viewDidAppear() {

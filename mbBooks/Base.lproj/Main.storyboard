@@ -697,18 +697,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView autoresizesSubviews="NO" fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="1" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mK-rH-Iwa">
-                                <rect key="frame" x="0.0" y="31" width="450" height="269"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="Bhf-dL-gZO">
-                                    <rect key="frame" x="0.0" y="0.0" width="435" height="269"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="435" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView autoresizesSubviews="NO" ambiguous="YES" editable="NO" importsGraphics="NO" verticallyResizable="YES" findStyle="bar" allowsDocumentBackgroundColorChange="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" linkDetection="YES" dataDetection="YES" dashSubstitution="YES" textReplacement="YES" smartInsertDelete="YES" id="404-K1-Gs3">
-                                            <rect key="frame" x="0.0" y="0.0" width="435" height="269"/>
+                                        <textView autoresizesSubviews="NO" ambiguous="YES" editable="NO" importsGraphics="NO" verticallyResizable="YES" findStyle="bar" allowsDocumentBackgroundColorChange="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" linkDetection="YES" dataDetection="YES" dashSubstitution="YES" textReplacement="YES" smartInsertDelete="YES" id="404-K1-Gs3" customClass="mbBooksTextViewController" customModule="mbBooks" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="435" height="300"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <size key="minSize" width="435" height="269"/>
+                                            <size key="minSize" width="435" height="300"/>
                                             <size key="maxSize" width="450" height="10000000"/>
                                             <color key="insertionPointColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -720,18 +720,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="PGU-t5-au1">
-                                    <rect key="frame" x="435" y="0.0" width="15" height="269"/>
+                                    <rect key="frame" x="435" y="0.0" width="15" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <customView identifier="bottomToolbar" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOV-Jm-2jg" customClass="KFToolbar">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="34"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </customView>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="bottomToolbar" destination="JOV-Jm-2jg" id="52H-LO-vsb"/>
                         <outlet property="textView" destination="404-K1-Gs3" id="0BC-Lx-pPn"/>
                         <outlet property="theScroll" destination="7mK-rH-Iwa" id="M2I-hm-sZY"/>
                     </connections>

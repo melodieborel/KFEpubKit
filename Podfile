@@ -5,8 +5,6 @@ target 'mbBooks' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
     pod 'SSZipArchive'
-    #pod 'KissXML'
-    pod 'KFToolbar'#,    :git => 'https://kfi.codebasehq.com/kftoolbar/kftoolbar.git'
 end
 
 target 'mbBooks iOS' do
@@ -19,6 +17,5 @@ target 'mbBooks Tests' do
     inherit! :search_paths
     platform :osx, '10.14'
     pod 'SSZipArchive'
-    #pod 'KissXML'
     pod 'OCMock'
 end

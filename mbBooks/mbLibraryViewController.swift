@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Cocoa
 
 class mbLibraryViewController: NSViewController, NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout {
     

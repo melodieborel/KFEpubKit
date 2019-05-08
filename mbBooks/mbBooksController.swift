@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Cocoa
 
 @objc protocol mbBooksControllerDelegate: NSObjectProtocol {
     func epubController(_ controller: mbBooksController?, didOpenEpub contentModel: mbBooksContentModel?)
