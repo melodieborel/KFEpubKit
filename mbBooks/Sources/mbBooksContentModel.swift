@@ -28,5 +28,5 @@ class mbBooksContentModel: NSManagedObject {
     @NSManaged var isRTL: Bool
     
     @NSManaged var bookMark: Int32
-    
+    @NSManaged var bookMarkIntra: Float
 }

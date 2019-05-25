@@ -188,7 +188,7 @@ class mbBooksParser: NSObject {
                         metaData[xmlElement.localName!] = xmlElement.stringValue
                     } else {
                         let attributeString = (xmlElement.attributes?.first as? NSNumber)?.stringValue ?? ""
-                        var metaDataKeyString = "\(String(describing: xmlElement.localName))-\(attributeString)"
+                        let metaDataKeyString = "\(String(describing: xmlElement.localName))-\(attributeString)"
                         metaData[metaDataKeyString] = xmlElement.stringValue
                     }
                 }
@@ -203,11 +203,11 @@ class mbBooksParser: NSObject {
     
     func spine(from document: XMLDocument?) -> [String] {
         var spine: [String] = []
-        let root = document?.rootElement() as? XMLElement
-        let defaultNamespace = root?.namespace(forPrefix: "")
+        let root = document?.rootElement()
+        //let defaultNamespace = root?.namespace(forPrefix: "")
         var spineNodes: [XMLNode]? = nil
         do {
-            spineNodes = try root?.nodes(forXPath: "/package/spine") as! [XMLNode]
+            spineNodes = try root?.nodes(forXPath: "/package/spine")
         } catch {
         }
         
@@ -215,8 +215,8 @@ class mbBooksParser: NSObject {
             let spineElement = spineNodes?[0] as? XMLElement
             
             let toc = self.mbRetrieveKey(for: "toc", in: spineElement!.description)
-            if toc != nil {
-                spine.append(toc ?? "")
+            if toc != "" {
+                spine.append(toc)
             } else {
                 spine.append("")
             }
@@ -262,11 +262,11 @@ class mbBooksParser: NSObject {
     }
 
     func manifest(from document: XMLDocument?) -> NSMutableDictionary? {
-        var manifest: NSMutableDictionary = [:]
+        let manifest: NSMutableDictionary = [:]
         var items: NSMutableDictionary = [:]
         
         let root = document?.rootElement()
-        let defaultNamespace = root?.namespace(forPrefix: "")
+        //let defaultNamespace = root?.namespace(forPrefix: "")
         var manifestNodes: [XMLNode]? = nil
         do {
             manifestNodes = try root?.nodes(forXPath: "/package/manifest")
@@ -303,10 +303,10 @@ class mbBooksParser: NSObject {
         var guide: [NSMutableDictionary] = []
         let root = document?.rootElement()
         
-        let defaultNamespace = root?.namespace(forPrefix: "")
+        //let defaultNamespace = root?.namespace(forPrefix: "")
         var guideNodes: [XMLNode]? = nil
         do {
-            guideNodes = try root?.nodes(forXPath: "/package/guide") as? [XMLNode]
+            guideNodes = try root?.nodes(forXPath: "/package/guide")
         } catch {
         }
         
@@ -319,14 +319,14 @@ class mbBooksParser: NSObject {
                     let type = self.mbRetrieveKey(for: "type", in: xmlElement.description)
                     let href = self.mbRetrieveKey(for: "href", in: xmlElement.description)
                     let title = self.mbRetrieveKey(for: "title", in: xmlElement.description)
-                    var reference: NSMutableDictionary = [:]
+                    let reference: NSMutableDictionary = [:]
                     if (type != "") {
                         reference.setObject(type, forKey: type as NSCopying)
                     }
-                    if (href != nil) {
+                    if (href != "") {
                         reference.setObject(href, forKey: "href" as NSCopying)
                     }
-                    if (title != nil) {
+                    if (title != "") {
                         reference.setObject(title, forKey: "title" as NSCopying)
                     }
                     guide.append(reference)

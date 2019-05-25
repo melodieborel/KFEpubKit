@@ -33,6 +33,7 @@
 		1DEB65641727E18800FDBDC3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEB65631727E18800FDBDC3 /* Cocoa.framework */; };
 		1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */; };
 		279AEA85E3E0F1BF3209D863 /* libPods-mbBooks Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15998E810106D06E0248F2ED /* libPods-mbBooks Tests.a */; };
+		2C06C41622830D7400A9C480 /* mbBooksLibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06C41522830D7400A9C480 /* mbBooksLibraryCollectionViewCell.swift */; };
 		2C25EA2C227AE312002D453A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C12A5A6227977E700CA6076 /* Main.storyboard */; };
 		2C25EA2D227B048B002D453A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C12A5A6227977E700CA6076 /* Main.storyboard */; };
 		2C25EA2E227B048C002D453A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C12A5A6227977E700CA6076 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		2C9947392278A51700C8CB9D /* mbBooksParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9947382278A51700C8CB9D /* mbBooksParser.swift */; };
 		2C99473A2278AAD800C8CB9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63A99522775E74008A026E /* AppDelegate.swift */; };
 		2C99A4A72281E1B000020B4F /* mbBooksTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99A4A62281E1B000020B4F /* mbBooksTextViewController.swift */; };
+		2CA6A157229939AA00A52EF2 /* mbReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6A156229939AA00A52EF2 /* mbReadings.swift */; };
 		2CECEE9422790696003D714D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63A99522775E74008A026E /* AppDelegate.swift */; };
 		2CECEE9522790698003D714D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63A99522775E74008A026E /* AppDelegate.swift */; };
 		2CECEE962279069E003D714D /* mbBooksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99472A22784BB100C8CB9D /* mbBooksController.swift */; };
@@ -112,6 +114,7 @@
 		1DEB656D1727E18800FDBDC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1DEB65711727E18800FDBDC3 /* mbBooks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mbBooks-Prefix.pch"; sourceTree = "<group>"; };
 		1F192F860501B481C437173E /* libPods-mbBooks iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mbBooks iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C06C41522830D7400A9C480 /* mbBooksLibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = mbBooksLibraryCollectionViewCell.swift; path = Sources/mbBooksLibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C12A5A7227977E700CA6076 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C25EA2F227B2471002D453A /* mbBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbBooksViewController.swift; sourceTree = "<group>"; };
 		2C42E179227E064700D90DD2 /* mbLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbLibraryViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 		2C99472E22784E7E00C8CB9D /* mbBooksContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = mbBooksContentModel.swift; path = Sources/mbBooksContentModel.swift; sourceTree = "<group>"; };
 		2C9947382278A51700C8CB9D /* mbBooksParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = mbBooksParser.swift; path = Sources/mbBooksParser.swift; sourceTree = "<group>"; };
 		2C99A4A62281E1B000020B4F /* mbBooksTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = mbBooksTextViewController.swift; path = Sources/mbBooksTextViewController.swift; sourceTree = "<group>"; };
+		2CA6A156229939AA00A52EF2 /* mbReadings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbReadings.swift; sourceTree = "<group>"; };
 		460CA5ACFE56C50D869B6D04 /* Pods-mbBooks iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mbBooks iOS.release.xcconfig"; path = "Target Support Files/Pods-mbBooks iOS/Pods-mbBooks iOS.release.xcconfig"; sourceTree = "<group>"; };
 		699ECAD7816D65EFC1069DA0 /* Pods_mbBooks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mbBooks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C6F5A6962A786C936117E2 /* Pods-mbBooks iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mbBooks iOS.debug.xcconfig"; path = "Target Support Files/Pods-mbBooks iOS/Pods-mbBooks iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -358,6 +362,7 @@
 		1DEB65881727FC7100FDBDC3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2CA6A156229939AA00A52EF2 /* mbReadings.swift */,
 				2C42E17C227ED21B00D90DD2 /* mbChapters.swift */,
 				2C25EA2F227B2471002D453A /* mbBooksViewController.swift */,
 				2C99A4A62281E1B000020B4F /* mbBooksTextViewController.swift */,
@@ -367,6 +372,7 @@
 				2C9947382278A51700C8CB9D /* mbBooksParser.swift */,
 				2C63A99722783784008A026E /* mbBooksExtractor.swift */,
 				2C42E179227E064700D90DD2 /* mbLibraryViewController.swift */,
+				2C06C41522830D7400A9C480 /* mbBooksLibraryCollectionViewCell.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -704,12 +710,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA6A157229939AA00A52EF2 /* mbReadings.swift in Sources */,
 				2C99473A2278AAD800C8CB9D /* AppDelegate.swift in Sources */,
 				2C46C83E227C360F0084C03E /* mbBooks.xcdatamodeld in Sources */,
 				2C25EA30227B2471002D453A /* mbBooksViewController.swift in Sources */,
 				2C9947392278A51700C8CB9D /* mbBooksParser.swift in Sources */,
 				2C9947302278523C00C8CB9D /* mbBooksConstants.swift in Sources */,
 				2C9947372278A4DD00C8CB9D /* mbBooksExtractor.swift in Sources */,
+				2C06C41622830D7400A9C480 /* mbBooksLibraryCollectionViewCell.swift in Sources */,
 				2C9947362278A29500C8CB9D /* mbBooksController.swift in Sources */,
 				2C99473522789E2E00C8CB9D /* mbBooksContentModel.swift in Sources */,
 				2C99A4A72281E1B000020B4F /* mbBooksTextViewController.swift in Sources */,

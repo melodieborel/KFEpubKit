@@ -10,6 +10,8 @@ import Foundation
 import Cocoa
 
 
+var myBookViewController: mbBooksViewController?
+
 class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
     
     @IBOutlet weak var textView: NSTextView!
@@ -38,6 +40,7 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
         super.viewDidLoad()
         // Do view setup here.
 
+        myBookViewController=self
         
         textView.linkTextAttributes = strokeTextAttributes
         textView.textStorage?.setAttributedString(currenttext);
@@ -50,11 +53,11 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
 
         textView!.textContainerInset = NSMakeSize(40.0, 40.0)
         let securityBookmark = try! UserDefaults.standard.string(forKey: "mbBooksFolder")
-        NSLog("security bookmark is \(securityBookmark)");
+        NSLog("security bookmark is \(String(describing: securityBookmark))");
         if (securityBookmark != nil){
             
             libraryURL = URL(fileURLWithPath:  securityBookmark!, isDirectory: true)
-            NSLog("\(libraryURL)")
+            NSLog("\(String(describing: libraryURL))")
             testEpubsInMainBundleResources()
             
         } else {
@@ -66,30 +69,35 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
     
     override func keyDown(with theEvent: NSEvent) // A key is pressed
     {
-        if theEvent.keyCode == 123
+
+        
+        if [ 123, 126].contains(theEvent.keyCode)
         {
-            if self.spineIndex > 1 {
-                self.spineIndex -= 1
-                self.updateContent(forSpineIndex: self.spineIndex)
-                textView.scrollToBeginningOfDocument(self)
+            if (abs(NSMinY(textView.visibleRect) - NSMinY(textView.bounds)) < 100.0) {
+                if self.spineIndex > 1 {
+                    self.spineIndex -= 1
+                    self.updateContent(forSpineIndex: self.spineIndex)
+                    textView.scrollToEndOfDocument(self)
+                }
+            } else {
+                textView.scrollPageUp(self)
             }
+            
         }
-        else if theEvent.keyCode == 124
+            
+        else if [ 124, 125].contains(theEvent.keyCode)
         {
-            if self.spineIndex < self.spineMax {
-                self.spineIndex += 1
-                self.updateContent(forSpineIndex: self.spineIndex)
-                textView.scrollToBeginningOfDocument(self)
+            if (abs(NSMaxY(textView.visibleRect) - NSMaxY(textView.bounds)) < 100.0) {
+                if self.spineIndex < self.spineMax {
+                    self.spineIndex += 1
+                    self.updateContent(forSpineIndex: self.spineIndex)
+                    textView.scrollToBeginningOfDocument(self)
+                }
+            } else {
+                textView.scrollPageDown(self)
             }
-        }
-        else if theEvent.keyCode == 125
-        {
-            textView.scrollPageDown(self)
-        }
-        else if theEvent.keyCode == 126
-        {
-            textView.scrollPageUp(self)
-            //textView.scrollRangeToVisible(NSRange(location: self.inChapPos, length: (textView.textStorage?.characters.count)!))
+            
+            
         }
         //print("Key with number: \(theEvent.keyCode) was pressed")
     }
@@ -97,6 +105,19 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
     override func viewDidAppear() {
         //self.view.window?.title = self.contentModel?.metaData["title"] as! String
         //print("the title is \(self.contentModel?.metaData["title"])")
+    }
+    
+    func saveBookMark(){
+        self.contentModel!.bookMark=Int32(self.spineIndex)
+        self.contentModel!.bookMarkIntra=Float(NSMinY(textView.visibleRect))
+        
+        let managedObjectContext = appDelegate.managedObjectContext
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
     }
     
     func requestLibraryURL() {
@@ -144,7 +165,12 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
                 self.spineMax = allchaphrefs.count
                     
                 self.contentModel = allBooks[0]
+                self.spineIndex = Int(self.contentModel!.bookMark)
+                
                 updateContent(forSpineIndex: self.spineIndex)
+                
+                textView.scrollToVisible(NSRect(origin: CGPoint(x: 0, y: Int(self.contentModel!.bookMarkIntra-1)), size: textView!.visibleRect.size))
+                //textView.scroll(CGPoint(x: 0, y: Int(self.contentModel!.bookMarkIntra)))
                 /** to erase all books
                     for item in allBooks {
                         moc.delete(item)
@@ -174,7 +200,7 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
 
             var dict: NSDictionary? = [:]
         
-            let theAttributedString = NSMutableAttributedString(url: contentURL as! URL, documentAttributes: &dict)
+            let theAttributedString = NSMutableAttributedString(url: contentURL , documentAttributes: &dict)
 
         strokeTextAttributes = [
             NSAttributedString.Key.strokeColor : NSColor.white,
@@ -183,23 +209,21 @@ class mbBooksViewController: NSViewController, mbBooksControllerDelegate {
             NSAttributedString.Key.font : NSFont.boldSystemFont(ofSize: 52)
             ] as [NSAttributedString.Key : Any]
         
-        do {
-            let output = theAttributedString
-            
-            let factor = 4
-            output!.beginEditing()
-            output!.enumerateAttribute(NSAttributedString.Key.font,
-                                       in: NSRange(location: 0, length: output!.length),
-                                      options: []) { (value, range, stop) -> Void in
-                                         let oldFont = value as? NSFont
-                                        let newFont = NSFont(descriptor: oldFont!.fontDescriptor, size: oldFont!.pointSize * CGFloat(factor))
-                                        output!.removeAttribute(NSAttributedString.Key.font, range: range)
-                                        output!.addAttribute(NSAttributedString.Key.font, value: newFont, range: range)
-            }
-            output!.endEditing()
+        let output = theAttributedString
+        
+        let factor = 4
+        output!.beginEditing()
+        output!.enumerateAttribute(NSAttributedString.Key.font,
+                                   in: NSRange(location: 0, length: output!.length),
+                                  options: []) { (value, range, stop) -> Void in
+                                     let oldFont = value as? NSFont
+                                    let newFont = NSFont(descriptor: oldFont!.fontDescriptor, size: oldFont!.pointSize * CGFloat(factor))
+                                    output!.removeAttribute(NSAttributedString.Key.font, range: range)
+                                    output!.addAttribute(NSAttributedString.Key.font, value: newFont!, range: range)
+        }
+        output!.endEditing()
 
-            try! theAttributedString!.addAttribute(.foregroundColor, value: NSColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1), range: NSRange(location: 0, length: theAttributedString!.length))
-        } catch {}
+        theAttributedString!.addAttribute(.foregroundColor, value: NSColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1), range: NSRange(location: 0, length: theAttributedString!.length))
         textView!.textStorage?.setAttributedString(theAttributedString!)
         textView.linkTextAttributes = strokeTextAttributes
         } catch {

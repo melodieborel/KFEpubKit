@@ -23,7 +23,6 @@ class mbBooksController: NSObject, mbBooksExtractorDelegate {
     private(set) var epubURL: URL?
     private(set) var destinationURL: URL?
     private(set) var epubContentBaseURL: URL?
-    //private(set) var contentModel: mbBooksContentModel?
     private var extractor: mbBooksExtractor?
     private var parser: mbBooksParser?
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
@@ -53,7 +52,7 @@ class mbBooksController: NSObject, mbBooksExtractorDelegate {
         let rootFile: URL? = parser!.rootFile(forBaseURL: destinationURL)
         
         if rootFile == nil {
-            var error = NSError(domain: mbBooksErrorDomain as String, code: 1, userInfo: [
+            let error = NSError(domain: mbBooksErrorDomain as String, code: 1, userInfo: [
                 NSLocalizedDescriptionKey: "No root file"
                 ])
             delegate!.epubController(self, didFailWithError: error)
@@ -85,11 +84,11 @@ class mbBooksController: NSObject, mbBooksExtractorDelegate {
             
             thisBook.metaData = parser!.metaData(from: document)!
             thisBook.coverPath = parser!.coverPathComponent(from: document)!
-            print(thisBook.mbBookPath)
+            print(thisBook.mbBookPath!)
             thisBook.isRTL = parser!.isRTL(from: document)
             
-            if thisBook.metaData == nil {
-                var error = NSError(domain: mbBooksErrorDomain as String, code: 1, userInfo: [
+            if thisBook.metaData.count == 0 {
+                let error = NSError(domain: mbBooksErrorDomain as String, code: 1, userInfo: [
                     NSLocalizedDescriptionKey: "No meta data found"
                     ])
                 delegate!.epubController(self, didFailWithError: error)
@@ -122,7 +121,7 @@ class mbBooksController: NSObject, mbBooksExtractorDelegate {
             }
         }
         else {
-            var error = NSError(domain: mbBooksErrorDomain as String, code: 1, userInfo: [
+            let error = NSError(domain: mbBooksErrorDomain as String, code: 1, userInfo: [
                 NSLocalizedDescriptionKey: "No document found"
                 ])
             delegate!.epubController(self, didFailWithError: error)

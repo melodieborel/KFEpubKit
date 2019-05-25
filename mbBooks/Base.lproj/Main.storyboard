@@ -756,6 +756,46 @@
             </objects>
             <point key="canvasLocation" x="-38" y="1348"/>
         </scene>
+        <!--Mb Books Library Collection View Cell-->
+        <scene sceneID="b4A-ga-Th6">
+            <objects>
+                <collectionViewItem storyboardIdentifier="mbCollectionViewItem" id="H8X-yl-X92" customClass="mbBooksLibraryCollectionViewCell" customModule="mbBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="eud-85-3n7">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pFc-Ba-QJf">
+                                <rect key="frame" x="-3" y="27" width="106" height="76"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Hxh-m8-K0E"/>
+                            </imageView>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7t4-6A-CIa">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="M55-eu-MCu">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pFc-Ba-QJf" firstAttribute="top" secondItem="eud-85-3n7" secondAttribute="top" id="5RR-n8-Af6"/>
+                            <constraint firstAttribute="bottom" secondItem="7t4-6A-CIa" secondAttribute="bottom" id="OtM-PF-sSZ"/>
+                            <constraint firstAttribute="bottom" secondItem="pFc-Ba-QJf" secondAttribute="bottom" constant="30" id="Zzf-ZX-8OB"/>
+                            <constraint firstItem="7t4-6A-CIa" firstAttribute="leading" secondItem="eud-85-3n7" secondAttribute="leading" id="fTd-K2-ZtD"/>
+                            <constraint firstItem="pFc-Ba-QJf" firstAttribute="leading" secondItem="eud-85-3n7" secondAttribute="leading" id="gJY-bx-5A3"/>
+                            <constraint firstItem="7t4-6A-CIa" firstAttribute="top" secondItem="pFc-Ba-QJf" secondAttribute="bottom" id="juR-W8-UQC"/>
+                            <constraint firstAttribute="trailing" secondItem="pFc-Ba-QJf" secondAttribute="trailing" id="mbk-gi-yuV"/>
+                            <constraint firstAttribute="trailing" secondItem="7t4-6A-CIa" secondAttribute="trailing" id="uZJ-Km-MA8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bookImage" destination="pFc-Ba-QJf" id="Q3U-2h-4PT"/>
+                    </connections>
+                </collectionViewItem>
+                <customObject id="xZE-hf-2ka" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-398" y="1723"/>
+        </scene>
         <!--Mb Library View Controller-->
         <scene sceneID="OIu-mo-LyB">
             <objects>
@@ -766,7 +806,7 @@
                         <subviews>
                             <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9X-I8-VwB">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="470"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="Kz1-bg-lCU">
                                     <rect key="frame" x="1" y="1" width="478" height="468"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -778,6 +818,9 @@
                                                 <size key="itemSize" width="50" height="50"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="AKN-zc-KVj" id="Psd-Ie-nI8"/>
+                                            </connections>
                                         </collectionView>
                                     </subviews>
                                 </clipView>

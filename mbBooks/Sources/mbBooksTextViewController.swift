@@ -20,6 +20,6 @@ class mbBooksTextViewController: NSTextView {
         {
 
         }
-        print("Key with number: \(theEvent.keyCode) was pressed")
+        //print("Key with number: \(theEvent.keyCode) was pressed")
     }
 }
